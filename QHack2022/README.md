@@ -1,4 +1,5 @@
-## Coding Challenges
+## Coding Challenges Solutions for [QHack2022](https://github.com/XanaduAI/QHack)
+Solutions extracted from: [QHack2022](https://github.com/JavierPerez21/QHack2022)
 ### Pennylane101
 * [Order Matters](./Coding_Challenges/pennylane101_100_OrderMatters_template/problem.pdf) --> [See solution](./Coding_Challenges/pennylane101_100_OrderMatters_template/pennylane101_100_OrderMatters.ipynb)
 * [Know Your Devices](./Coding_Challenges/pennylane101_200_KnowYourDevices_template/problem.pdf) --> [See solution](./Coding_Challenges/pennylane101_200_KnowYourDevices_template/pennylane101_200_KnowYourDevices.ipynb)
