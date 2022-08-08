@@ -1,9 +1,9 @@
 ## Coding Challenges Solutions for [QHack2021](https://github.com/XanaduAI/QHack2021)
-Solutions extracted from: [QHack2021](https://github.com/co9olguy/QHack2021)
+Solutions extracted from: [QHack2021](https://github.com/RKHashmani/QHack2021)
 ### Simple Circuits
-* [SC20](QML_Challenges/simple_circuits_20_template/problem.pdf) -->
-* [SC30](QML_Challenges/simple_circuits_30_template/problem.pdf) -->
-* [SC50](QML_Challenges/simple_circuits_50_template/problem.pdf) -->
+* [SC20](QML_Challenges/simple_circuits_20_template/problem.pdf) --> [See solution](QML_Challenges/simple_circuits_20_template/simple_circuits_20_template.py)
+* [SC30](QML_Challenges/simple_circuits_30_template/problem.pdf) --> [See solution](QML_Challenges/simple_circuits_30_template/simple_circuits_30_template.py)
+* [SC50](QML_Challenges/simple_circuits_50_template/problem.pdf) --> [See solution](QML_Challenges/simple_circuits_50_template/simple_circuits_50_template.py)
 ### Circuit Training
 * [CT100](QML_Challenges/circuit_training_100_template/problem.pdf) --> 
 * [CT200](QML_Challenges/circuit_training_200_template/problem.pdf) -->

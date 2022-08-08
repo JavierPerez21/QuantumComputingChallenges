@@ -31,11 +31,26 @@ def optimize_circuit(params):
 
     # Initialize the device
     # dev = ...
+    dev = qml.device('default.qubit', wires=WIRES)
 
     # Instantiate the QNode
     # circuit = qml.QNode(variational_circuit, dev)
 
+    circuit = qml.QNode(variational_circuit, dev)
+
     # Minimize the circuit
+
+    def cost(params):
+        return circuit(params)
+
+    opt = qml.AdamOptimizer(stepsize=0.01)
+
+    steps = 90
+
+    training_params = params
+
+    for i in range(steps):
+        training_params = opt.step(cost, training_params)
 
     # QHACK #
 

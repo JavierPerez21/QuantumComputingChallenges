@@ -22,12 +22,15 @@ def simple_circuits_20(angle):
     # QHACK #
 
     # Step 1 : initalize a device
-
+    num_wires = 1
+    dev = qml.device('default.qubit', wires=num_wires)
     # Step 2 : Create a quantum circuit and qnode
-
+    @qml.qnode(dev)
+    def circuit(param):
+        qml.RX(param, wires=0)  # a single-wire parameterized gate
+        return qml.probs(wires=[0])
     # Step 3 : Run the qnode
-    # prob = ?
-
+    prob = circuit(angle)[0]
     # QHACK #
     return prob
 
