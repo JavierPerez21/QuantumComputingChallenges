@@ -7,6 +7,7 @@ from pennylane import numpy as np
 a = 0.7
 b = -0.3
 dev = qml.device("default.qubit", wires=3)
+dev1 = qml.device("default.qubit", wires=3)
 
 
 def natural_gradient(params):
@@ -31,9 +32,69 @@ def natural_gradient(params):
 
     natural_grad = np.zeros(6)
 
-    # QHACK #
+    gradient = np.zeros([natural_grad.shape[0]])
+    fim = np.zeros([natural_grad.shape[0], natural_grad.shape[0]])
 
-    # QHACK #
+    eps = np.pi / 2
+
+    for k in range(gradient.shape[0]):
+        eps_plus = params.copy()
+        eps_plus[k] += eps
+        exp_value_plus = qnode(eps_plus)
+
+        eps_minus = params.copy()
+        eps_minus[k] -= eps
+        exp_value_minus = qnode(eps_minus)
+
+        gradient[k] = (exp_value_plus - exp_value_minus) / (2 * np.sin(eps))
+
+    eps = np.pi / 2
+
+    qnode(params)
+    state = dev.state
+    for k in range(natural_grad.shape[0]):
+        for l in range(gradient.shape[0]):
+            if l <= k:
+                eps_pp = params.copy()
+                eps_pp[k] += eps
+                eps_pp[l] += eps
+
+                eps_pm = params.copy()
+                eps_pm[k] += eps
+                eps_pm[l] -= eps
+
+                eps_mp = params.copy()
+                eps_mp[k] -= eps
+                eps_mp[l] += eps
+
+                eps_mm = params.copy()
+                eps_mm[k] -= eps
+                eps_mm[l] -= eps
+
+                qnode(eps_pp)
+                state_pp = dev.state
+                measure_pp = np.abs(np.conjugate(state) @ state_pp)
+
+                qnode(eps_pm)
+                state_pm = dev.state
+                measure_pm = np.abs(np.conjugate(state) @ state_pm)
+
+                qnode(eps_mp)
+                state_mp = dev.state
+                measure_mp = np.abs(np.conjugate(state) @ state_mp)
+
+                qnode(eps_mm)
+                state_mm = dev.state
+                measure_mm = np.abs(np.conjugate(state) @ state_mm)
+
+                fim[k, l] = (-measure_pp ** 2 - measure_mm ** 2 + measure_mp ** 2 + measure_pm ** 2) / 8
+
+    for k in range(natural_grad.shape[0]):
+        for l in range(natural_grad.shape[0]):
+            if l > k:
+                fim[k, l] = fim[l, k]
+
+    natural_grad = np.dot(np.linalg.inv(fim), gradient)
 
     return natural_grad
 

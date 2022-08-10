@@ -45,11 +45,59 @@ def gradient_200(weights, dev):
     gradient = np.zeros([5], dtype=np.float64)
     hessian = np.zeros([5, 5], dtype=np.float64)
 
-    # QHACK #
+    f = circuit(weights)
 
-    # QHACK #
+    eps = np.pi / 4
 
-    return gradient, hessian, circuit.diff_options["method"]
+    exp_p = np.zeros([5], dtype=np.float64)
+    exp_m = np.zeros([5], dtype=np.float64)
+
+    for k in range(gradient.shape[0]):
+        eps_plus = weights.copy()
+        eps_plus[k] += eps
+        exp_value_plus = circuit(eps_plus)
+        exp_p[k] = exp_value_plus
+
+        eps_minus = weights.copy()
+        eps_minus[k] -= eps
+        exp_value_minus = circuit(eps_minus)
+        exp_m[k] = exp_value_minus
+
+        gradient[k] = (exp_value_plus - exp_value_minus) / (2 * np.sin(eps))
+
+    for k in range(gradient.shape[0]):
+        hessian[k, k] = (exp_p[k] + exp_m[k] - 2 * f) / (4 * (np.sin(eps / 2) ** 2))
+        for l in range(gradient.shape[0]):
+            if l < k:
+                eps_pp = weights.copy()
+                eps_pp[k] += eps
+                eps_pp[l] += eps
+
+                eps_pm = weights.copy()
+                eps_pm[k] += eps
+                eps_pm[l] -= eps
+
+                eps_mp = weights.copy()
+                eps_mp[k] -= eps
+                eps_mp[l] += eps
+
+                eps_mm = weights.copy()
+                eps_mm[k] -= eps
+                eps_mm[l] -= eps
+
+                measure_pp = circuit(eps_pp)
+                measure_pm = circuit(eps_pm)
+                measure_mp = circuit(eps_mp)
+                measure_mm = circuit(eps_mm)
+
+                hessian[k, l] = (measure_pp + measure_mm - measure_mp - measure_pm) / (4 * (np.sin(eps) ** 2))
+
+    for k in range(gradient.shape[0]):
+        for l in range(gradient.shape[0]):
+            if l > k:
+                hessian[k, l] = hessian[l, k]
+
+    return gradient, hessian, circuit.diff_method
 
 
 if __name__ == "__main__":
@@ -65,6 +113,5 @@ if __name__ == "__main__":
         *np.round(gradient, 10),
         *np.round(hessian.flatten(), 10),
         dev.num_executions,
-        diff_method,
         sep=","
     )

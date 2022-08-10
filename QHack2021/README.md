@@ -10,8 +10,8 @@ Solutions extracted from: [RKHashmani](https://github.com/RKHashmani/QHack2021)
 * [CT500](QML_Challenges/circuit_training_500_template/problem.pdf) -->
 ### Quantum Gradients
 * [QG100](QML_Challenges/quantum_gradients_100_template/problem.pdf) -->
-* [QG200](QML_Challenges/quantum_gradients_200_template/problem.pdf) -->
-* [QG500](QML_Challenges/quantum_gradients_500_template/problem.pdf) -->
+* [QG200](QML_Challenges/quantum_gradients_200_template/problem.pdf) --> [See solution](QML_Challenges/quantum_gradients_200_template/quantum_gradients_200_template.py)
+* [QG500](QML_Challenges/quantum_gradients_500_template/problem.pdf) --> [See solution](QML_Challenges/quantum_gradients_500_template/quantum_gradients_500_template.py)
 ### VQE
 * [VQE100](QML_Challenges/vqe_100_template/problem.pdf) -->
 * [VQE200](QML_Challenges/vqe_200_template/problem.pdf) -->
