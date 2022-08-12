@@ -11,6 +11,7 @@ This repo is a compilation of several Quantum Computing Challenges and the solut
 * [IBM Quantum Challenge 2021](IBMQuantumChallenge2021/README.md)
 * [IBM Quantum Challenge Fall 2021](IBMQuantumChallengeFall2021/README.md)
 * [IBM Quantum Challenge Spring 2022](IBMQuantumChallengeSpring2022/README.md)
+* [ICPC Quantum Challenge 2021](ICPCQuantumChallenge2021/README.md)
 
 ## Cirq
 * [QCHack 2021 Google Challenge](QCHack2021/README.md)
