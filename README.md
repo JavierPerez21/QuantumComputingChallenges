@@ -9,3 +9,4 @@ This repo is a compilation of several Quantum Computing Challenges and the solut
 # Qiskit
 * [IBM Quantum Challenge 2020](IBMQuantumChallenge2020/README.md)
 * [IBM Quantum Challenge 2021](IBMQuantumChallenge2021/README.md)
+* [IBM Quantum Challenge Fall 2021](IBMQuantumChallenge2022/README.md)
