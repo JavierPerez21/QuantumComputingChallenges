@@ -84,7 +84,7 @@ def compression_ratio(obs_hamiltonian, final_solution):
         - final_solution (list(list(str))): Your final selection of observables.
 
     Returns:
-        - (float): Compression ratio your solution.
+        - (float): Compression ratio your solution.ipynb.
     """
 
     # QHACK

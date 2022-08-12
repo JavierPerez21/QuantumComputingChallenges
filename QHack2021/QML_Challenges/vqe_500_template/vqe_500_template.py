@@ -182,7 +182,7 @@ def find_excited_states(H):
 
 def pauli_token_to_operator(token):
     """
-    DO NOT MODIFY anything in this function! It is used to judge your solution.
+    DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
 
     Helper function to turn strings into qml operators.
 
@@ -218,7 +218,7 @@ def pauli_token_to_operator(token):
 
 def parse_hamiltonian_input(input_data):
     """
-    DO NOT MODIFY anything in this function! It is used to judge your solution.
+    DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
 
     Turns the contents of the input file into a Hamiltonian.
 
@@ -258,6 +258,6 @@ if __name__ == "__main__":
     # Turn input to Hamiltonian
     H = parse_hamiltonian_input(sys.stdin.read())
 
-    # Send Hamiltonian through VQE routine and output the solution
+    # Send Hamiltonian through VQE routine and output the solution.ipynb
     lowest_three_energies = find_excited_states(H)
     print(lowest_three_energies)

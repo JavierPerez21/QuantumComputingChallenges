@@ -3,7 +3,7 @@ Challenge 4c solver function for the IBM Quantum Fall Challenge 2021
 Author: Kamen Petroff (kpe)
 Score: old:260_084 new:3_482_625
 
-The first accepted solution was implemented using the qiskit builtin QFT.
+The first accepted solution.ipynb was implemented using the qiskit builtin QFT.
 While unit testing the const_adder() I've also implemented a QFT from scratch,
 following the figures/diagrams in arXiv:quant-ph/0008033.pdf, and it looked like
 my custom QFT version performed slightly better than the built in one.
@@ -42,17 +42,17 @@ Summary of the approach:
 Please find additional comments in the code.
 **N.B.**
 
-1. even the present solution uses one qubit less than the suggested `data_qubits` value (6 for the reduced problem),
+1. even the present solution.ipynb uses one qubit less than the suggested `data_qubits` value (6 for the reduced problem),
    it accurately sets the constraint flag (the MSB data_qubit) to 1 for infeasible solutions with cost > C_max.
 
-2. the correctness of the solution can be verified by using better suited values
+2. the correctness of the solution.ipynb can be verified by using better suited values
    for the parameters p and alpha (like p=7,9 and alpha=2):
 
 - p=9,alpha=2):
   - top20 max ratio - is 100% for all problem instances except 2 for which it is 97% and 98%
-  - the best solution (max ratio) has maximal count rank 0 in 14 cases, in 7 cases is between 1 and 5,
+  - the best solution.ipynb (max ratio) has maximal count rank 0 in 14 cases, in 7 cases is between 1 and 5,
     and has in only 2 cases rank between 6 and 10 (rank being the position when sorting by counts)
-  - the counts of the best solution is on average around 43 (when using 512 shots)
+  - the counts of the best solution.ipynb is on average around 43 (when using 512 shots)
 
    ratio: 100 100 98 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 100 97
   counts: 56 45 13 21 51 30 29 42 126 17 105 29 18 30 57 65 69 13 39 16 50 23 73 24
@@ -183,7 +183,7 @@ def solver_function(L1: list, L2: list, C1: list, C2: list, C_max: int) -> Quant
     # data register would look like, however we'll not use this method,
     # but instead do a single QFT, do all phase rotations there, before
     # doing the inverse IQFT transformation.
-    # (This is actually the main idea in optimizing the 4c solution.)
+    # (This is actually the main idea in optimizing the 4c solution.ipynb.)
     #
     def const_adder(data_qubits: int, const: int, to_gate=True) -> Union[Gate, QuantumCircuit]:
         qr_data = QuantumRegister(data_qubits)

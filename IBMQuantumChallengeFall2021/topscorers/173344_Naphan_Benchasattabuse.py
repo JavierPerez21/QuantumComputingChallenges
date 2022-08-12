@@ -20,7 +20,7 @@ we can just do QFT once at the start of the calculating cost function, perform i
 the value back to binary so we can perform the penalty dephase. After that we just inverse the constraint check and cost calculation.
 2. Another idea that we can reduce the cost is to use approximate QFT instead of exact QFT. This will help us to reduce both the CNot
 and the depth especially when data register is large. We perform the rotation up to pi/16 only. This still result in a good approximation
-and we can still arrive at the solution
+and we can still arrive at the solution.ipynb
 3. Optimization of the gates order. Make use of circuit identities ...
 ​
 """

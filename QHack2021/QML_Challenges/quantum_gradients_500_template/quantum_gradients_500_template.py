@@ -102,7 +102,7 @@ def natural_gradient(params):
 def non_parametrized_layer():
     """A layer of fixed quantum gates.
 
-    # DO NOT MODIFY anything in this function! It is used to judge your solution.
+    # DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
     """
     qml.RX(a, wires=0)
     qml.RX(b, wires=1)
@@ -124,7 +124,7 @@ def variational_circuit(params):
     The first parametrized layer uses the first three parameters of ``params``, while the second
     layer uses the final three parameters.
 
-    # DO NOT MODIFY anything in this function! It is used to judge your solution.
+    # DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
     """
     non_parametrized_layer()
     qml.RX(params[0], wires=0)
@@ -141,7 +141,7 @@ def qnode(params):
     """A PennyLane QNode that pairs the variational_circuit with an expectation value
     measurement.
 
-    # DO NOT MODIFY anything in this function! It is used to judge your solution.
+    # DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
     """
     variational_circuit(params)
     return qml.expval(qml.PauliX(1))

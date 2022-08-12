@@ -13,7 +13,7 @@ and explain the implementation in comments
 # TODO 2: write summary of your approach
 # TODO 2: please highlight the techniques that gave you the biggest improvement
 Summary of the approach:
-1. After I got the right solution, I removed all the intermediate Fourier transforms
+1. After I got the right solution.ipynb, I removed all the intermediate Fourier transforms
 in the algorithm, and I left just two, One outside the functions, becase we don't care about the
 state of data_qubtis, we only need these qubits to give us the right relative phase.
 The other Fourier transform is inside cost_calculation. The rest were useless

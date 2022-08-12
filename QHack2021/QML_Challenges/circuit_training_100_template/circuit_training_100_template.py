@@ -49,14 +49,14 @@ def optimize_circuit(params):
 
 def variational_circuit(params):
     """
-    # DO NOT MODIFY anything in this function! It is used to judge your solution.
+    # DO NOT MODIFY anything in this function! It is used to judge your solution.ipynb.
 
     This is a template variational quantum circuit containing a fixed layout of gates with variable
     parameters. To be used as a QNode, it must either be wrapped with the @qml.qnode decorator or
     converted using the qml.QNode function (as shown above).
 
     The output of this circuit is the expectation value of a Hamiltonian. An unknown Hamiltonian
-    will be used to judge your solution.
+    will be used to judge your solution.ipynb.
 
     Args:
         params (np.ndarray): An array of optimizable parameters of shape (30,)
